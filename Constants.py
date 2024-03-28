@@ -1,0 +1,15 @@
+POPULATION_SIZE = 500
+THRESHOLD = 50
+P_CROSSOVER = 0.9  # probability for crossover
+P_MUTATION = 0.3  # probability for mutating an individual
+MAX_GENERATIONS = 500
+HALL_OF_FAME_SIZE = 10
+DELTA = 50
+PATHTOBOCPBOCC = "Bocp_Bocc_files/"
+ACTUALBOCP = "BOCPCALCD"
+ACTUALBOCC = "BOCCCALCD"
+PATHTOIMGSNAPSHOT = "Shots/"
+ACTUALIMG = "calcd.png"
+ACTUALSNAPSHOT = "calcd.uix"
+RESULTCOUNTERPATH = "Results/resultCounter"
+RESULTPATH = "Results/"
