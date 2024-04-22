@@ -1,10 +1,22 @@
+import os
 import pickle
+import time
 
 import Algorithm
 import seaborn as sns
 from matplotlib import pyplot as plt
+import Constants
+import Utilities
 from Constants import *
 import Test
+from DistanceTest import testResults
+
+
+def saveOriginalColors(colors, path):
+    with open(path, "w") as f:
+        for color in colors:
+            f.write(str(color))
+            f.write("\n")
 
 
 def main():
@@ -39,6 +51,15 @@ def main():
     image.show()
     imageName = RESULTPATH + ACTUALIMG.split(".")[0] + "_" + str(counter) + ".png"
     image.save(imageName)
+    bocpPath, boccPath = PATHTOBOCPBOCC + ACTUALBOCP, PATHTOBOCPBOCC + ACTUALBOCC
+    bocp, bocc = Utilities.openBocc(bocpPath, boccPath)
+    saveOriginalColors(list(bocp.keys()), Constants.ORIGINALCOLORSFILEPATH)
+    os.system("node .\\Automated_tests\\main.js")
+    time.sleep(5)
+    jsOutputFile = open("js_output.txt", 'r')
+    jsResults = []
+    for line in jsOutputFile:
+        jsResults.append((line[1: len(line) - 2].split(",")))
 
 
 if __name__ == '__main__':
